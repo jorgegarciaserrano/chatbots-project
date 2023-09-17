@@ -1,9 +1,7 @@
 # Next.js ChatGPT Tutorial Documentation
 > Build and customize your own ChatGPT-like web app using Next.js and the OpenAI API. The provided code serves as a foundation, and you can customize it to fit your specific use case. 
-<img alt="Screenshot" src="./public/img/screenshot.jpg" height="75%" width="75%"/>
 
-## Tutorial
-You can find a step-by-step tutorial [here](https://www.jakeprins.com/blog/how-to-create-a-chatgpt-application-using-next-js-and-the-openai-api). 
+
 
 ## Overview
 
@@ -47,11 +45,6 @@ const body = JSON.stringify({
 })
 ``` 
 
-Remember that the performance, response time, and pricing for different models may vary. Please refer to the OpenAI API documentation for more information on available models and their specific capabilities.
-
-Feel free to modify the code and styles to fit your specific needs. The application uses Tailwind CSS for styling, making it easy to customize the design by modifying the `/src/styles/tailwind.css` and `/src/styles/globals.css` files.
-
-You can also update the application logic, components, and API calls to match your requirements. The main chat functionality is located in `/src/utils/sendMessage.ts` and `/src/utils/useMessages.tsx`.
 
 ## Deploying to Production
 
@@ -59,7 +52,5 @@ To deploy your application, you can use a platform like Vercel or Netlify. Both 
 
 If you have any questions or need further assistance, don't hesitate to create a GitHub issue!
 
-## TeamSmart AI
 
-For a complete ChatGPT Chrome extension checkout [TeamSmart AI](https://www.teamsmart.ai/).
 

@@ -7,28 +7,33 @@ import { NextPage } from 'next';
 import { MessagesProvider, MessageProviderSecondBot } from 'utils/useMessages';
 
 const IndexPage: NextPage = () => {
-
   return (
     <div className="flex">
       {/* Right Column (MessagesList2 for the second bot) */}
-      <div className="flex-1">
+      <div className="flex-1 bg-gray-100 p-4">
         <MessageProviderSecondBot>
           <Layout>
-            <MessagesList2 />
-            <div className="fixed bottom-0 left-0">
-              <MessageForm2 />
+            <div className="bg-white p-4 rounded shadow">
+              <h2 className="text-lg font-semibold mb-4">EMAIL BOT</h2>
+              <MessagesList2 />
+              <div className="mt-4">
+                <MessageForm2 />
+              </div>
             </div>
           </Layout>
         </MessageProviderSecondBot>
       </div>
 
       {/* Left Column (MessagesList for the first bot) */}
-      <div className="flex-1">
+      <div className="flex-1 bg-gray-100 p-4">
         <MessagesProvider>
           <Layout>
-            <MessagesList />
-            <div className="fixed bottom-0 right-0">
-              <MessageForm />
+            <div className="bg-white p-4 rounded shadow">
+              <h2 className="text-lg font-semibold mb-4">PROTOTYPING BOT</h2>
+              <MessagesList />
+              <div className="mt-4">
+                <MessageForm />
+              </div>
             </div>
           </Layout>
         </MessagesProvider>
@@ -38,6 +43,7 @@ const IndexPage: NextPage = () => {
 };
 
 export default IndexPage;
+
 
 
 
