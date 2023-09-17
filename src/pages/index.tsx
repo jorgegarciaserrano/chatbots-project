@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import Layout from '../components/Layout';
 import MessageForm from 'components/MessageForm';
 import MessagesList from 'components/MessageList';
@@ -7,44 +8,93 @@ import { NextPage } from 'next';
 import { MessagesProvider, MessageProviderSecondBot } from 'utils/useMessages';
 
 const IndexPage: NextPage = () => {
+  const [isEmailBotOpen, setIsEmailBotOpen] = useState(false);
+  const [isSummarizingBotOpen, setIsSummarizingBotOpen] = useState(false);
+
+  const openEmailBot = () => {
+    setIsEmailBotOpen(true);
+  };
+
+  const closeEmailBot = () => {
+    setIsEmailBotOpen(false);
+  };
+
+  const openSummarizingBot = () => {
+    setIsSummarizingBotOpen(true);
+  };
+
+  const closeSummarizingBot = () => {
+    setIsSummarizingBotOpen(false);
+  };
+
   return (
     <div className="flex">
-      {/* Right Column (MessagesList2 for the second bot) */}
-      <div className="flex-1 bg-gray-100 p-4">
-        <MessageProviderSecondBot>
-          <Layout>
-            <div className="bg-white p-4 rounded shadow">
-              <h2 className="text-lg font-semibold mb-4">EMAIL BOT</h2>
+      {/* Email Bot Popup */}
+      {isEmailBotOpen && (
+        <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50">
+          <div className="bg-white rounded-lg shadow-lg overflow-hidden w-3/4">
+            <h2 className="text-lg font-semibold p-4">EMAIL BOT</h2>
+            <MessageProviderSecondBot>
               <MessagesList2 />
-              <div className="mt-4">
+              <div className="p-4">
                 <MessageForm2 />
               </div>
-            </div>
-          </Layout>
-        </MessageProviderSecondBot>
-      </div>
+            </MessageProviderSecondBot>
+            <button
+              className="block text-center w-full py-2 text-sm bg-gray-200 text-gray-700 hover:bg-gray-300 focus:outline-none"
+              onClick={closeEmailBot}
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      )}
 
-      {/* Left Column (MessagesList for the first bot) */}
-      <div className="flex-1 bg-gray-100 p-4">
-        <MessagesProvider>
-          <Layout>
-            <div className="bg-white p-4 rounded shadow">
-              <h2 className="text-lg font-semibold mb-4">PROTOTYPING BOT</h2>
+      {/* Summarizing Bot Popup */}
+      {isSummarizingBotOpen && (
+        <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50">
+          <div className="bg-white rounded-lg shadow-lg overflow-hidden w-3/4">
+            <h2 className="text-lg font-semibold p-4">SUMMARIZING BOT</h2>
+            <MessagesProvider>
               <MessagesList />
-              <div className="mt-4">
+              <div className="p-4">
                 <MessageForm />
               </div>
-            </div>
-          </Layout>
-        </MessagesProvider>
+            </MessagesProvider>
+            <button
+              className="block text-center w-full py-2 text-sm bg-gray-200 text-gray-700 hover:bg-gray-300 focus:outline-none"
+              onClick={closeSummarizingBot}
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      )}
+
+      {/* Buttons to Toggle Popups */}
+      <div className="flex-1 bg-gray-100 p-4">
+        <Layout>
+          <div className="bg-white p-4 rounded-lg shadow">
+            <button
+              className="text-lg font-semibold mb-4 bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 focus:outline-none"
+              onClick={openEmailBot}
+            >
+              Open Email Bot
+            </button>
+            <button
+              className="text-lg font-semibold bg-green-500 text-white py-2 px-4 rounded-md hover:bg-green-600 focus:outline-none"
+              onClick={openSummarizingBot}
+            >
+              Open Summarizing Bot
+            </button>
+          </div>
+        </Layout>
       </div>
     </div>
   );
 };
 
 export default IndexPage;
-
-
 
 
 

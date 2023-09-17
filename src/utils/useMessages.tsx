@@ -88,11 +88,11 @@ export function MessagesProvider({ children }: { children: ReactNode }) {
     const initializeChat = () => {
       const systemMessage: ChatCompletionRequestMessage = {
         role: 'system',
-        content: 'You are ChatGPT, a large language model trained by OpenAI.'
+        content: 'Summarize the following text into a five-line, short parragraph'
       }
       const welcomeMessage: ChatCompletionRequestMessage = {
         role: 'assistant',
-        content: 'Hi, How can I help you today?'
+        content: 'Introduce the text you want to summarize'
       }
       setMessages([systemMessage, welcomeMessage])
     }
