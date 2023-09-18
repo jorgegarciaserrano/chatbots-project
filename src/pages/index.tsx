@@ -13,6 +13,14 @@ import {
   MessageProviderThirdBot
 } from 'utils/useMessages'
 
+// Agrega estilos personalizados para Raleway
+const buttonStyle = {
+  backgroundColor: 'black',
+  color: 'white',
+  fontFamily: 'Raleway, sans-serif',
+  margin: '0.5rem'
+}
+
 const IndexPage: NextPage = () => {
   const [isEmailBotOpen, setIsEmailBotOpen] = useState(false)
   const [isSummarizingBotOpen, setIsSummarizingBotOpen] = useState(false)
@@ -56,7 +64,8 @@ const IndexPage: NextPage = () => {
               </div>
             </MessageProviderSecondBot>
             <button
-              className="block text-center w-full py-2 text-sm bg-gray-200 text-gray-700 hover:bg-gray-300 focus:outline-none"
+              style={buttonStyle} // Aplica el estilo personalizado
+              className="block text-center w-full py-2 text-sm hover:bg-gray-300 focus:outline-none"
               onClick={closeEmailBot}
             >
               Close
@@ -77,7 +86,8 @@ const IndexPage: NextPage = () => {
               </div>
             </MessagesProvider>
             <button
-              className="block text-center w-full py-2 text-sm bg-gray-200 text-gray-700 hover:bg-gray-300 focus:outline-none"
+              style={buttonStyle} // Aplica el estilo personalizado
+              className="block text-center w-full py-2 text-sm hover:bg-gray-300 focus:outline-none"
               onClick={closeSummarizingBot}
             >
               Close
@@ -98,7 +108,8 @@ const IndexPage: NextPage = () => {
               </div>
             </MessageProviderThirdBot>
             <button
-              className="block text-center w-full py-2 text-sm bg-gray-200 text-gray-700 hover:bg-gray-300 focus:outline-none"
+              style={buttonStyle} // Aplica el estilo personalizado
+              className="block text-center w-full py-2 text-sm hover:bg-gray-300 focus:outline-none"
               onClick={closePostBot}
             >
               Close
@@ -112,19 +123,22 @@ const IndexPage: NextPage = () => {
         <Layout>
           <div className="bg-white p-4 rounded-lg shadow">
             <button
-              className="text-lg font-semibold mb-4 bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 focus:outline-none"
+              style={buttonStyle} // Aplica el estilo personalizado
+              className="text-lg font-semibold mb-4 py-2 px-4 rounded-md hover:bg-gray-300 focus:outline-none"
               onClick={openEmailBot}
             >
               Open Email Bot
             </button>
             <button
-              className="text-lg font-semibold bg-green-500 text-white py-2 px-4 rounded-md hover:bg-green-600 focus:outline-none"
+              style={buttonStyle} // Aplica el estilo personalizado
+              className="text-lg font-semibold py-2 px-4 rounded-md hover:bg-gray-300 focus:outline-none"
               onClick={openSummarizingBot}
             >
               Open Summarizing Bot
             </button>
             <button
-              className="text-lg font-semibold  bg-red-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 focus:outline-none"
+              style={buttonStyle} // Aplica el estilo personalizado
+              className="text-lg font-semibold py-2 px-4 rounded-md hover:bg-gray-300 focus:outline-none"
               onClick={openPostBot}
             >
               Open Post Bot
