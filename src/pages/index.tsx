@@ -6,11 +6,15 @@ import MessageForm2 from 'components/MessageForm2'
 import MessagesList2 from 'components/MessageList2'
 import MessagesList3 from 'components/MessageList3'
 import MessageForm3 from 'components/MessageForm3'
+import MessagesList4 from 'components/MessageList4'
+import MessageForm4 from 'components/MessageForm4'
+
 import { NextPage } from 'next'
 import {
   MessagesProvider,
   MessageProviderSecondBot,
-  MessageProviderThirdBot
+  MessageProviderThirdBot,
+  MessageProviderFourthBot
 } from 'utils/useMessages'
 
 // Agrega estilos personalizados para Raleway
@@ -25,6 +29,7 @@ const IndexPage: NextPage = () => {
   const [isEmailBotOpen, setIsEmailBotOpen] = useState(false)
   const [isSummarizingBotOpen, setIsSummarizingBotOpen] = useState(false)
   const [isPostBotOpen, setIsPostBotOpen] = useState(false)
+  const [isProdBotOpen, setIsProdBotOpen] = useState(false)
 
   const openEmailBot = () => {
     setIsEmailBotOpen(true)
@@ -48,6 +53,14 @@ const IndexPage: NextPage = () => {
 
   const closePostBot = () => {
     setIsPostBotOpen(false)
+  }
+
+  const openProdBot = () => {
+    setIsProdBotOpen(true)
+  }
+
+  const closeProdBot = () => {
+    setIsProdBotOpen(false)
   }
 
   return (
@@ -118,6 +131,28 @@ const IndexPage: NextPage = () => {
         </div>
       )}
 
+      {/* Summarizing Bot Popup */}
+      {isProdBotOpen && (
+        <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50">
+          <div className="bg-white rounded-lg shadow-lg overflow-hidden w-3/4">
+            <h2 className="text-lg font-semibold p-4">PRODUCTIVITY BOT</h2>
+            <MessageProviderFourthBot>
+              <MessagesList4 />
+              <div className="p-4">
+                <MessageForm4 />
+              </div>
+            </MessageProviderFourthBot>
+            <button
+              style={buttonStyle} // Aplica el estilo personalizado
+              className="block text-center w-full py-2 text-sm hover:bg-gray-300 focus:outline-none"
+              onClick={closeProdBot}
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      )}
+
       {/* Buttons to Toggle Popups */}
       <div className="flex-1 bg-gray-100 p-4">
         <Layout>
@@ -142,6 +177,13 @@ const IndexPage: NextPage = () => {
               onClick={openPostBot}
             >
               Open Post Bot
+            </button>
+            <button
+              style={buttonStyle} // Aplica el estilo personalizado
+              className="text-lg font-semibold py-2 px-4 rounded-md hover:bg-gray-300 focus:outline-none"
+              onClick={openProdBot}
+            >
+              Open Productivity Bot
             </button>
           </div>
         </Layout>
