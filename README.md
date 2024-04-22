@@ -1,4 +1,4 @@
-# Next.js ChatGPT Tutorial Documentation
+# Next.js ChatGPT  Documentation
 > Build and customize your own ChatGPT-like web app using Next.js and the OpenAI API. The provided code serves as a foundation, and you can customize it to fit your specific use case. 
 
 
